@@ -17,14 +17,14 @@ def look_and_say(init_data):
 def part_one(data):
     for _ in range(40):
         data = look_and_say(data)
-    return data
+    return len(data)
 
 
 def part_two(data):
     for _ in range(50):
         data = look_and_say(data)
-    return data
+    return len(data)
 
 
-print(f"Part One: {str(len(part_one(input_data)))}")
-print(f"Part Two: {str(len(part_two(input_data)))}")
+print(f"Part One: {str(part_one(input_data))}")
+print(f"Part Two: {str(part_two(input_data))}")
