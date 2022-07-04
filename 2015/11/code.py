@@ -1,9 +1,9 @@
 # Advent of code Year 2015 Day 11 solution
 # Author = Szymon Kasprzycki
-# Date = May 2022
+# Date = June 2022
 import re
 
-with open((__file__.rstrip("code.py")+"input.txt"), 'r') as input_file:
+with open((__file__.rstrip("code.py") + "input.txt"), 'r') as input_file:
     input_data = input_file.read()
 
 
@@ -26,15 +26,16 @@ def get_next_letter(letter):
 
 def check_pass(password):
     if any(letter in password for letter in ['i', 'o', 'l']) or \
-           (len(re.findall(r'([a-z])\1', password)) < 2) or \
-           (len([1 for x, y, z in zip(password, password[1:], password[2:])
-                   if get_code_letter(z)-get_code_letter(y) == 1 and get_code_letter(y)-get_code_letter(x) == 1]) == 0):
+            (len(re.findall(r'([a-z])\1', password)) < 2) or \
+            (len([1 for x, y, z in zip(password, password[1:], password[2:])
+                  if
+                  get_code_letter(z) - get_code_letter(y) == 1 and get_code_letter(y) - get_code_letter(x) == 1]) == 0):
         return False
     return True
 
 
 def gen_pass(start_pass):
-    start_pass = re.sub(r'([a-y])(z*)$', lambda x: chr(ord(x.group(1))+1) + len(x.group(2))*"a", start_pass)
+    start_pass = re.sub(r'([a-y])(z*)$', lambda x: chr(ord(x.group(1)) + 1) + len(x.group(2)) * "a", start_pass)
     return start_pass
 
 
